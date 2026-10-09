@@ -1,0 +1,30 @@
+{
+  "name": "barber-system",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @barber/web",
+    "dev:web": "npm run dev -w @barber/web",
+    "dev:api": "npm run dev -w @barber/api",
+    "dev:miniapp": "npm run dev -w @barber/miniapp",
+    "dev:all": "npm run dev:api & npm run dev:web & npm run dev:miniapp",
+    "build": "npm run build -w @barber/api && npm run build -w @barber/web && npm run build -w @barber/miniapp",
+    "build:web": "npm run build -w @barber/web",
+    "build:api": "npm run build -w @barber/api",
+    "build:miniapp": "npm run build -w @barber/miniapp",
+    "lint": "npm run lint -w @barber/web && npm run lint -w @barber/api && npm run lint -w @barber/miniapp",
+    "db:generate": "npm run db:generate -w @barber/api",
+    "db:migrate": "npm run db:migrate -w @barber/api",
+    "db:seed": "npm run db:seed -w @barber/api",
+    "db:studio": "npm run db:studio -w @barber/api",
+    "test": "npm run test -w @barber/api",
+    "test:race": "npm run test:race -w @barber/api",
+    "notifications:run": "npm run notifications:run -w @barber/api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

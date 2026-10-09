@@ -1,0 +1,228 @@
+.page {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: 0.02em;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 88%, #fff);
+  padding: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.grid2 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.row {
+  display: grid;
+  gap: 0.65rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.7rem 0.8rem;
+  border-radius: 2px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn,
+.btnGhost,
+.btnDanger {
+  padding: 0.65rem 0.95rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+.btn {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btnDanger {
+  background: transparent;
+  border-color: color-mix(in srgb, #b33 40%, var(--line));
+  color: #a33;
+}
+
+.btn:disabled,
+.btnGhost:disabled,
+.btnDanger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #a33;
+  font-size: 0.92rem;
+}
+
+.ok {
+  color: var(--accent-deep);
+  font-size: 0.92rem;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.55rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+}
+
+.cardTop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filters {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.week {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.day {
+  display: grid;
+  gap: 0.45rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.65rem;
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.55rem;
+}
+
+.photos img,
+.avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.loginPage {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.loginBox {
+  width: min(420px, 100%);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 40%),
+    color-mix(in srgb, var(--paper) 90%, #fff);
+  display: grid;
+  gap: 1rem;
+}
+
+.loginBrand {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 720px) {
+  .grid2,
+  .row,
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .row3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

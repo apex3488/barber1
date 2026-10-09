@@ -1,0 +1,138 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--header-h);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.scrolled,
+.header.open {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.scrolled .brand,
+.open .brand {
+  color: var(--ink);
+}
+
+.nav {
+  display: none;
+  gap: 1.6rem;
+}
+
+.nav a {
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.2s ease;
+}
+
+.scrolled .nav a {
+  color: var(--muted);
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cta {
+  display: none;
+}
+
+.burger {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  transition: transform 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+}
+
+.scrolled .burger span,
+.open .burger span {
+  background: var(--ink);
+}
+
+.open .burger span:first-child {
+  transform: translateY(4.5px) rotate(45deg);
+}
+
+.open .burger span:last-child {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+
+.mobile {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  background: var(--paper);
+  padding: 1.5rem;
+}
+
+.mobile nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mobile .btn {
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+
+  .burger,
+  .mobile {
+    display: none;
+  }
+}

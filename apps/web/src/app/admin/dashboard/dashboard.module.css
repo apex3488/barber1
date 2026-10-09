@@ -1,0 +1,90 @@
+.kpis {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.kpi {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 90%, #fff);
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.kpi strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.split {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.heatWrap {
+  overflow-x: auto;
+}
+
+.heat {
+  min-width: 640px;
+  display: grid;
+  grid-template-columns: 36px repeat(14, minmax(36px, 1fr));
+  gap: 0.25rem;
+  align-items: stretch;
+}
+
+.heatCorner {
+  height: 1.2rem;
+}
+
+.heatHour {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.heatDayRow {
+  display: contents;
+}
+
+.heatDay {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: grid;
+  align-items: center;
+}
+
+.heatCell {
+  min-height: 32px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}

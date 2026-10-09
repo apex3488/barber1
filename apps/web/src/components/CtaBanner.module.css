@@ -1,0 +1,37 @@
+.cta {
+  position: relative;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background:
+    radial-gradient(700px 280px at 20% 0%, rgba(196, 122, 44, 0.22), transparent 60%),
+    linear-gradient(135deg, #171c19 0%, #0f1311 55%, #1c1712 100%);
+  color: #f4efe5;
+}
+
+.inner {
+  max-width: 40rem;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: rgba(244, 239, 229, 0.78);
+  margin-bottom: 1.5rem;
+  max-width: 28rem;
+}

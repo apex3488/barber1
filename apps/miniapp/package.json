@@ -1,0 +1,25 @@
+{
+  "name": "@barber/miniapp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --host",
+    "build": "tsc -b && vite build",
+    "lint": "tsc -b --pretty false",
+    "preview": "vite preview --port 5173 --host"
+  },
+  "dependencies": {
+    "@twa-dev/sdk": "^8.0.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.0"
+  }
+}

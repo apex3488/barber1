@@ -1,0 +1,76 @@
+.section {
+  background:
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--paper-deep) 70%, transparent)),
+    var(--paper);
+}
+
+.error,
+.empty {
+  color: var(--muted);
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: #b42318;
+}
+
+.grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.person {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.photo img {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.person:hover .photo img {
+  transform: scale(1.04);
+}
+
+.body h3 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.exp {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.bio {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .person:hover .photo img {
+    transform: none;
+  }
+}

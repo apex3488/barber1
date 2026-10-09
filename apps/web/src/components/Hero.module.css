@@ -1,0 +1,100 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  animation: kenburns 18s ease-out both;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-veil);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: calc(var(--header-h) + 3rem) 0 4.5rem;
+  max-width: 40rem;
+  margin-right: auto;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 11vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  animation: rise 0.9s ease both;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.25;
+  max-width: 18ch;
+  margin-bottom: 1rem;
+  animation: rise 0.9s ease 0.12s both;
+}
+
+.lead {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 34ch;
+  margin-bottom: 1.75rem;
+  animation: rise 0.9s ease 0.22s both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  animation: rise 0.9s ease 0.32s both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .brand,
+  .title,
+  .lead,
+  .actions {
+    animation: none;
+  }
+}
