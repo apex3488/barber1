@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "prisma generate",
     "dev": "npm run dev -w @barber/web",
     "dev:web": "npm run dev -w @barber/web",
     "dev:api": "npm run dev -w @barber/api",
@@ -23,6 +24,9 @@
     "test": "npm run test -w @barber/api",
     "test:race": "npm run test:race -w @barber/api",
     "notifications:run": "npm run notifications:run -w @barber/api"
+  },
+  "prisma": {
+    "schema": "apps/api/prisma/schema.prisma"
   },
   "engines": {
     "node": ">=20"

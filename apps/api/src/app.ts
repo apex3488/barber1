@@ -21,17 +21,25 @@ export async function buildApp() {
     logger: true,
   });
 
-  const origins = (
-    process.env.CORS_ORIGINS ??
-    "http://localhost:3000,http://localhost:5173"
-  )
-    .split(",")
+  const defaults = [
+    "http://localhost:3000",
+    "http://localhost:3010",
+    "http://localhost:5173",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+  ];
+  const fromEnv = [
+    ...(process.env.CORS_ORIGIN ?? "").split(","),
+    ...(process.env.CORS_ORIGINS ?? "").split(","),
+  ]
     .map((item) => item.trim())
     .filter(Boolean);
+  const origins = [...new Set([...fromEnv, ...defaults])];
 
   await app.register(cors, {
     origin: origins,
     credentials: true,
+    allowedHeaders: ["content-type", "authorization"],
   });
   await app.register(cookie);
   await app.register(rateLimit, {

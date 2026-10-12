@@ -51,15 +51,14 @@ export const telegramRoutes: FastifyPluginAsync = async (app) => {
   });
 };
 
-export async function startTelegramBotMode(logger: {
-  info: (msg: string) => void;
-  error: (err: unknown) => void;
-}) {
+/** Регистрирует handlers и команды; webhook без long polling. */
+export async function setupBotMenu() {
   const bot = ensureHandlers();
-  if (!bot) {
-    logger.info("Telegram bot skipped: no TELEGRAM_BOT_TOKEN");
-    return;
-  }
+  if (!bot) return;
+
+  await bot.api.setMyCommands([
+    { command: "start", description: "Главное меню" },
+  ]);
 
   const webhookUrl = process.env.TELEGRAM_WEBHOOK_URL?.trim();
   if (webhookUrl) {
@@ -68,13 +67,5 @@ export async function startTelegramBotMode(logger: {
       secret_token: secret || undefined,
       drop_pending_updates: true,
     });
-    logger.info(`Telegram webhook set: ${webhookUrl}`);
-    return;
   }
-
-  await bot.api.deleteWebhook({ drop_pending_updates: true });
-  logger.info("Telegram bot started in long polling mode");
-  void bot.start({
-    onStart: (info) => logger.info(`Bot @${info.username} polling`),
-  });
 }

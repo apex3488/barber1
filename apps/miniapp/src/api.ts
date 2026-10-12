@@ -1,8 +1,8 @@
 import { getInitData } from "./telegram";
 
-const API_URL = (
-  import.meta.env.VITE_API_URL ?? "http://localhost:3001"
-).replace(/\/$/, "");
+const API_ORIGIN = import.meta.env.VITE_API_URL
+  ? String(import.meta.env.VITE_API_URL).replace(/\/$/, "")
+  : "";
 
 export type Service = {
   id: string;
@@ -61,7 +61,8 @@ async function request<T>(
     if (initData) headers.set("X-Telegram-Init-Data", initData);
   }
 
-  const response = await fetch(`${API_URL}${path}`, { ...init, headers });
+  const url = API_ORIGIN ? `${API_ORIGIN}${path}` : path;
+  const response = await fetch(url, { ...init, headers });
   if (!response.ok) {
     let message = `Ошибка ${response.status}`;
     let code = "HTTP_ERROR";
