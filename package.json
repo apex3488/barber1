@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "prisma generate",
+    "postinstall": "npm exec -w @barber/api -- prisma generate",
     "dev": "npm run dev -w @barber/web",
     "dev:web": "npm run dev -w @barber/web",
     "dev:api": "npm run dev -w @barber/api",
