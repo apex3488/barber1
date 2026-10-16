@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import type { FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import cookie from "@fastify/cookie";
 import rateLimit from "@fastify/rate-limit";
@@ -16,11 +17,7 @@ import { cronRoutes } from "./routes/cron.js";
 import { reviewsRoutes } from "./routes/reviews.js";
 import { adminRoutes } from "./routes/admin/index.js";
 
-export async function buildApp() {
-  const app = Fastify({
-    logger: true,
-  });
-
+export async function registerApp(app: FastifyInstance) {
   const defaults = [
     "http://localhost:3000",
     "http://localhost:3010",
@@ -89,6 +86,13 @@ export async function buildApp() {
       message: "Маршрут не найден",
     });
   });
+}
 
+/** Для тестов и локальных скриптов. Entrypoint Vercel — src/index.ts. */
+export async function buildApp() {
+  const app = Fastify({
+    logger: true,
+  });
+  await registerApp(app);
   return app;
 }
